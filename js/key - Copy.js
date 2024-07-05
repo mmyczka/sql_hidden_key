@@ -1,12 +1,10 @@
+
 document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const keyLevel = urlParams.get('door')||1;
-    document.querySelector('.container').setAttribute('data-key-level', keyLevel);
-    document.querySelector('.header h1').textContent = `SQL Secret Key: Door ${keyLevel}`;
-    loadSqlFiles(keyLevel);
+    loadSqlFiles();
 });
 
-function loadSqlFiles(keyLevel) {
+function loadSqlFiles() {
+    const keyLevel = document.querySelector('.container').getAttribute('data-key-level');
     const files = {
         'Steps': `../sql/key_${keyLevel}/steps.sql`,
         'Oracle': `../sql/key_${keyLevel}/oracle.sql`,
@@ -65,7 +63,7 @@ function checkAnswer(evt, secret_key) {
     const nextLevelLink = document.getElementById('nextLevel');
 
     const keyLevel = document.querySelector('.container').getAttribute('data-key-level');
-   
+    
     fetch(`../sql/key_${keyLevel}/key.sql`)
         .then(response => response.text())
         .then(secret_key_1 => {
@@ -85,22 +83,16 @@ function checkAnswer(evt, secret_key) {
         });
 }
 
+
 function loadNextLevel() {
     const container = document.querySelector('.container');
     let keyLevel = parseInt(container.getAttribute('data-key-level'), 10);
     keyLevel += 1;
     container.setAttribute('data-key-level', keyLevel);
-    container.querySelector('.header h1').textContent = `SQL Secret Key: Door ${keyLevel}`;
+    container.querySelector('.header h1').textContent = `SQL Secret Key: ${keyLevel}`;
     document.getElementById('passcode').value = '';
     document.getElementById('result').textContent = '';
     document.getElementById('nextLevel').style.display = 'none';
 
-    const newUrl = `${window.location.pathname}?door=${keyLevel}`;
-    window.history.pushState({ path: newUrl }, '', newUrl);
-
-    const activeButton = document.getElementById(`showanswer`)
-    if (activeButton.textContent === 'Hide SQL') { activeButton.click(); };
-
-
-    loadSqlFiles(keyLevel);
+    loadSqlFiles();
 }

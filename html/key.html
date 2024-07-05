@@ -10,16 +10,21 @@
     <script src="../js/key.js" defer></script>
     <script src="../js/code.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <style>
+        .hljs-comment {
+             color: #BEBB7B; /* Yellow Gray */
+        }
+    </style>
 </head>
 <body>
     <div class="container" data-key-level="1">
         <div class="header">
-            <h1>SQL Secret Key: 1</h1>
+            <h1>SQL Secret Key: Door 1</h1>
         </div>
         <div class="content">
             <div class="steps">
                 <div class="tab">
-                    <button class="show-answer" onclick="toggleButton(event)">Show SQL</button>
+                    <button class="show-answer" onclick="toggleButton(event)" id="showanswer">Show SQL</button>
                     <button class="tablinks active" onclick="openTab(event, 'SQLServer')">SQL Server</button>
                     <button class="tablinks" onclick="openTab(event, 'Oracle')">Oracle</button>
                     <button class="tablinks" onclick="openTab(event, 'Postgres')">Postgres</button>

@@ -4,19 +4,17 @@
 -- 1. Create database named "Animals".
 
 CREATE DATABASE Animals;
-GO
 
 
 -- 2. Create table named "Mammals" with columns "Id" and "Name".
 
-USE Animals;
-GO
+\c Animals;
 
 CREATE TABLE Mammals (
-    Id INT IDENTITY(1, 1) NOT NULL,
+    Id SERIAL PRIMARY KEY,
     Name VARCHAR(50)
 );
-GO
+
 
 
 -- 3. Fill out the table with the following animals:
@@ -40,7 +38,7 @@ INSERT INTO Mammals (Name) VALUES
 ('Gorilla'),
 ('Wolf'),
 ('Kangaroo');
-GO
+
 
 
 -- 4. Select all animals in alphabetical order
@@ -48,7 +46,7 @@ GO
 SELECT Name
 FROM Mammals
 ORDER BY Name ASC;
-GO
+
 
 
 -- 5. 10-th position is a Secret Key
@@ -56,5 +54,4 @@ GO
 SELECT Name AS SecretKey
 FROM Mammals
 ORDER BY Name ASC
-OFFSET 9 ROWS FETCH NEXT 1 ROW ONLY;
-GO
+OFFSET 9 LIMIT 1;

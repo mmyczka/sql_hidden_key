@@ -1,0 +1,150 @@
+body {
+    color: #ecf0f1;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh;*/
+    margin: 0;
+    background: #2c3e50;
+}
+
+.container {
+    background: #34495e;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.header, .content {
+    margin-bottom: 20px;
+}
+
+.header {
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.steps, .check {
+    width: 45%;
+}
+
+.steps {
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.check {
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.check input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 80%;
+    max-width: 300px;
+    background: #34495e;
+    color: #ecf0f1;
+}
+
+.check button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #3498db;
+    color: #ecf0f1;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.check button:hover {
+    background: #2980b9;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#nextLevel {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #27ae60;
+    color: #ecf0f1;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#nextLevel:hover {
+    background: #2ecc71;
+}
+
+.tab {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.tab button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background: #34495e;
+    color: #ecf0f1;
+    border-radius: 5px;
+}
+
+.tab button.active {
+    background: #3498db;
+    color: #ecf0f1;
+}
+
+.tabcontent {
+	position: relative;
+    display: none;
+    background: #34495e;
+    padding: 0px;
+    border-radius: 5px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0);
+}
+
+.tabcontent pre {
+    margin: 0;
+    color: #ecf0f1;
+}
+
+.tabcontent.active {
+    display: block;
+}
+
+.answer {
+    display: block;
+    margin-top: 10px;
+}
+
+.show-answer {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background: #34495e;
+    color: #ecf0f1;
+    border-radius: 5px;
+}
+
+.tablinks {
+     visibility: hidden;
+}
